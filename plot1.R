@@ -17,7 +17,7 @@ setAs("character","myTime", function(from) as.POSIXlt(from, format="%T") )
 
 powerTable <- read.table("household_power_consumption.txt", header=T, sep=";", na.strings="?", colClasses= c("myDate", "myTime", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
 
-hist(powerTable[powerTable$Date == as.Date("2007/02/01") | powerTable$Date == as.Date("2007/02/02"),"Global_active_power"], col = "red", border="black", xlab = "Global Active Power (kilowatts)")
-title("Global Active Power")
+hist(powerTable[powerTable$Date == as.Date("2007/02/01") | powerTable$Date == as.Date("2007/02/02"),"Global_active_power"], col = "red", border="black", xlab = "Global Active Power (kilowatts)", main="Global Active Power")
+
 
 
