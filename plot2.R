@@ -19,3 +19,8 @@ subsetPower <- subset(powerTable,(powerTable$Date == as.Date("2007/02/01") | pow
 subsetPower$timestamp <- as.POSIXct(paste(subsetPower$Date, subsetPower$Time), "%d/%m/%Y %H:%M:%S")
 
 plot(x=subsetPower$timestamp, y=subsetPower$Global_active_power, type="l", xlab=" ", ylab="Global Active Power (kilowatts)")
+
+## write plot to PNG
+setwd(outputDirectory)
+dev.copy (png, "plot2.png")
+dev.off()
