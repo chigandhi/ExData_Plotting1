@@ -18,6 +18,10 @@ subsetPower <- subset(powerTable,(powerTable$Date == as.Date("2007/02/01") | pow
 
 subsetPower$timestamp <- as.POSIXct(paste(subsetPower$Date, subsetPower$Time), "%d/%m/%Y %H:%M:%S")
 
+## setting png
+setwd(outputDirectory)
+png(file="plot4.png", width=960, height=960)
+
 par (mfrow=c(2,2))
 
 ## plot on top left
@@ -36,3 +40,5 @@ legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_
 
 ## plot on bottom right
 plot(x=subsetPower$timestamp, y=subsetPower$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
+
+dev.off()
