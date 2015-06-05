@@ -17,3 +17,9 @@ powerTable <- read.table("household_power_consumption.txt", header=T, sep=";", n
 subsetPower <- subset(powerTable,(powerTable$Date == as.Date("2007/02/01") | powerTable$Date == as.Date("2007/02/02")))
 
 subsetPower$timestamp <- as.POSIXct(paste(subsetPower$Date, subsetPower$Time), "%d/%m/%Y %H:%M:%S")
+
+colors <- c("black", "red", "blue")
+
+plot(x=subsetPower$timestamp, y=subsetPower$Sub_metering_1, type="l", xlab=" ", ylab="Energy sub metering", col="black")
+lines(x=subsetPower$timestamp, y=subsetPower$Sub_metering_2, col="red")
+lines(x=subsetPower$timestamp, y=subsetPower$Sub_metering_3, col="blue")
