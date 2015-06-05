@@ -24,3 +24,8 @@ plot(x=subsetPower$timestamp, y=subsetPower$Sub_metering_1, type="l", xlab=" ", 
 lines(x=subsetPower$timestamp, y=subsetPower$Sub_metering_2, col="red")
 lines(x=subsetPower$timestamp, y=subsetPower$Sub_metering_3, col="blue")
 legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, col= colors)
+
+## write plot to PNG
+setwd(outputDirectory)
+dev.copy (png, "plot3.png")
+dev.off()
